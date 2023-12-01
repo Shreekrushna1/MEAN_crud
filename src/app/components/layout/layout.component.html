@@ -1,0 +1,28 @@
+<nz-layout>
+  <nz-header>
+    <div class="logo">CRUD</div>
+    <ul nz-menu nzTheme="dark" nzMode="horizontal">
+      <ng-container *ngIf="!isValid">
+        <button nz-button nz-dropdown [nzDropdownMenu]="menu">Client Area</button>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <ul nz-menu>
+            <li nz-menu-item routerLink="/login">Log In</li>
+            <li nz-menu-item routerLink="/register">Register</li>
+          </ul>
+        </nz-dropdown-menu>
+      </ng-container>
+      <ng-container *ngIf="isValid">
+        <button nz-button nz-dropdown nzType="primary">Add User</button> &nbsp;
+        <button nz-button nz-dropdown nzType="primary" nzDanger (click)="logout()">Log out</button>
+      </ng-container>
+    </ul>
+  </nz-header>
+  <nz-content>
+    <nz-breadcrumb>
+    </nz-breadcrumb>
+    <div class="inner-content">
+      <router-outlet />
+    </div>
+  </nz-content>
+  <nz-footer></nz-footer>
+</nz-layout>

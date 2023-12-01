@@ -1,0 +1,31 @@
+<div class="container">
+  <div style="display: flex; justify-content: center; align-items: center; height: 75vh;">
+    <nz-card style="width:500px;" nzTitle="Login In" [nzLoading]="isLoading">
+      <form nz-form [formGroup]="loginForm" class="login-form" (ngSubmit)="submitForm()">
+        <nz-form-item>
+          <nz-form-label [nzSpan]="7" nzFor="email" >E-mail/Username</nz-form-label>
+        <nz-form-control [nzSpan]="15"  nzErrorTip="Please input your username!">
+          <input nz-input name="email" type="email" id="email" formControlName="username">
+        </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSpan]="7" nzFor="password">Password</nz-form-label>
+        <nz-form-control [nzSpan]="15"  nzErrorTip="Please input your password!">
+          <input nz-input name="password" type="password" id="password" formControlName="password">
+        </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <button nz-button nzType="primary" type="submit" [nzLoading]="isLogin" class="mx-auto" >
+            <span nz-icon nzType="poweroff"></span>
+            {{ isLogin ? 'Please Wait ' : 'Login'}}
+          </button>
+        </nz-form-item>
+      </form>
+      <nz-alert *ngIf="message"
+      [nzType]="msgType"
+      nzMessage="{{msgType === 'success' ? message + ' ' + 'redirecting' : message}}"
+      nzShowIcon
+    ></nz-alert>
+    </nz-card>
+  </div>
+</div>

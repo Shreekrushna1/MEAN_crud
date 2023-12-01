@@ -1,0 +1,123 @@
+<div class="container">
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 75vh;
+    "
+  >
+    <nz-card style="width: 500px" nzTitle="Register" [nzLoading]="isLoading">
+      <form
+        nz-form
+        [formGroup]="registerForm"
+        class="login-form"
+        (ngSubmit)="submitForm()"
+      >
+        <nz-form-item>
+          <nz-form-label [nzSpan]="7" nzFor="username">Username</nz-form-label>
+          <nz-form-control
+            [nzSpan]="15"
+            nzErrorTip="Please input your username!"
+          >
+            <input
+              nz-input
+              name="username"
+              type="username"
+              id="username"
+              formControlName="username"
+            />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSpan]="7" nzFor="password">Password</nz-form-label>
+          <nz-form-control
+            [nzSpan]="15"
+            nzErrorTip="Please input your password!"
+          >
+            <input
+              nz-input
+              name="password"
+              type="password"
+              id="password"
+              formControlName="password"
+            />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSpan]="7" nzFor="firstname"
+            >First Name</nz-form-label
+          >
+          <nz-form-control
+            [nzSpan]="15"
+            nzErrorTip="Please input your first name!"
+          >
+            <input
+              nz-input
+              name="firstname"
+              type="text"
+              id="firstname"
+              formControlName="firstname"
+            />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSpan]="7" nzFor="lastname">Last Name</nz-form-label>
+          <nz-form-control
+            [nzSpan]="15"
+            nzErrorTip="Please input your last name!"
+          >
+            <input
+              nz-input
+              name="lastname"
+              type="text"
+              id="lastname"
+              formControlName="lastname"
+            />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSpan]="7" nzFor="email">Email</nz-form-label>
+          <nz-form-control [nzSpan]="15" nzErrorTip="Please input your email!">
+            <input
+              nz-input
+              name="email"
+              type="email"
+              id="email"
+              formControlName="email"
+            />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSpan]="7" nzFor="mobile">Mobile</nz-form-label>
+          <nz-form-control [nzSpan]="15" nzErrorTip="Please input your mobile!">
+            <input
+              nz-input
+              name="mobile"
+              type="number"
+              id="mobile"
+              formControlName="mobile"
+            />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <button
+            nz-button
+            nzType="primary"
+            type="submit"
+            [nzLoading]="isRegister"
+            class="mx-auto"
+          >
+            <span nz-icon nzType="poweroff"></span>
+            {{ isRegister ? 'Please Wait ' : 'Register'}}
+          </button>
+        </nz-form-item>
+      </form>
+      <nz-alert *ngIf="message"
+      [nzType]="msgType"
+      nzMessage="{{message}}"
+      nzShowIcon
+    ></nz-alert>
+    </nz-card>
+  </div>
+</div>
